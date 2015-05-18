@@ -262,6 +262,7 @@ class ViewController: UIViewController {
             myLabel?.text? = String(format:"%g",result)
             
             
+                      
             
     
             
@@ -277,6 +278,9 @@ class ViewController: UIViewController {
                 
                 myLabel?.text? = String(format:"%g",result)
             
+             NSLog("%g", result)
+                
+            
                 
                 
             //マイナスの時
@@ -289,6 +293,8 @@ class ViewController: UIViewController {
                     
                     myLabel?.text? = String(format:"%g",result)
                 
+             NSLog("%g", result)
+            
             }else if (operate == "×"){
                 
                 let number2 =  (myLabel!.text! as NSString).doubleValue
@@ -297,6 +303,8 @@ class ViewController: UIViewController {
                 let result = number * number2
                 
                 myLabel?.text? = String(format:"%g",result)
+                
+                 NSLog("%g", result)
                 
                 
             }else if (operate == "÷"){
@@ -307,6 +315,11 @@ class ViewController: UIViewController {
                 let result = number / number2
                 
                 myLabel?.text? = String(format:"%g",result)
+                
+                 NSLog("%g", result)
+                
+           
+    
                 
             
                 
@@ -319,9 +332,17 @@ class ViewController: UIViewController {
         // それ以外のボタンが押された場合の処理
         } else {
             
+            let number =  (myLabel!.text! as NSString).doubleValue
+            
+            NSLog("%g", number)
+            
+            myLabel?.text? = ""
+            
             // ボタンのタイトルをラベルの文字列に追加
             myLabel?.text? += button3.titleLabel!.text!
         
+            
+            
         }
         
         }
