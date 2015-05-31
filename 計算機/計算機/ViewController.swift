@@ -18,9 +18,19 @@ class ViewController: UIViewController {
     var operate:String = ""
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let image = UIImage(named: "illust")
+        
+        let imageview = UIImageView(image:image)
+        
+        self.view.addSubview(imageview)
        
+    
+    
         
         let C = makeButton(50,y:250,title:"AC")
     
@@ -44,8 +54,8 @@ class ViewController: UIViewController {
         let button3 = makeButton(230, y:520,title:"3")
         let plus = makeButton(320,y:520,title:"+")
         
-        let button0 = makeButton(50,y:610,title:"0")
-        button0.frame = CGRectMake(10, 570, 170, 80)
+        let button0 = makeButton(45,y:600,title:"0")
+        button0.frame = CGRectMake(10, 570, 175, 85)
         let dod = makeButton(230,y:610,title:".")
         let ikoru = makeButton(320,y:610,title:"=")
         
@@ -75,10 +85,10 @@ class ViewController: UIViewController {
     
         // Labelを作成.
         
-        myLabel=UILabel(frame: CGRectMake(0,0,350,180))
+        myLabel=UILabel(frame: CGRectMake(0,0,360,190))
         
         // 背景をオレンジ色にする.
-        myLabel?.backgroundColor = UIColor(red: 0.529, green: 0.809, blue: 0.98, alpha: 0.2)
+        myLabel?.backgroundColor = UIColor(red: 0.529, green: 0.809, blue: 0.98, alpha: 0.8)//UIColor.clearColor()
         
         
         // 枠を丸くする.
@@ -90,12 +100,15 @@ class ViewController: UIViewController {
         // Labelに文字を代入.
         myLabel?.text = ""
         
+        
+        
         // 文字の色
         myLabel?.textColor = UIColor(red: 0.1, green: 0.1, blue: 1.0, alpha: 1.0)
         
         //文字のサイズ
     
-        
+        //文字フォント
+         myLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 40)
         
         // 文字の影の色をグレーにする.
         myLabel?.shadowColor = UIColor.grayColor()
@@ -128,25 +141,28 @@ class ViewController: UIViewController {
 
             //タップした状態のテキスト
             //button3.setTitle("＊", forState: .Highlighted)
-            
+        
+        //フォントの変更
+        button3.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
+        
             //タップした状態の色
             button3.setTitleColor(UIColor.redColor(), forState: .Highlighted)
-            
+        
             //サイズ
-            button3.frame = CGRectMake(0, 0, 80, 80)
+            button3.frame = CGRectMake(0, 0, 85, 85)
         
            //配置場所
             button3.layer.position = CGPoint(x:x, y:y)
             
             //背景色
-            button3.backgroundColor = UIColor(red: 1.0, green: 0.412, blue: 0.706, alpha: 0.2)
+            button3.backgroundColor = UIColor(red: 1.0, green: 0.412, blue: 0.706, alpha: 0.6)
 
             
             //角丸
             button3.layer.cornerRadius = 10
             
             //ボーダー幅
-            button3.layer.borderWidth = 1
+            button3.layer.borderWidth = 2
             
             //ボタンをタップした時に実行するメソッドを指定
             button3.addTarget(self, action: "tapped:", forControlEvents:.TouchUpInside)
@@ -165,9 +181,19 @@ class ViewController: UIViewController {
             
             // ラベルの文字を消す
             myLabel?.text? = ""
+        
+            //０を一つだけ表示
+            } else if (button3.titleLabel!.text! == "0") {
+            
+            if (myLabel?.text != "0"){
+                
+                myLabel?.text? += "0"
+            }
+            
+            
             
             // +ボタンが押された場合の処理
-        
+            
         } else if (button3.titleLabel!.text! == "+") {
             
             // ラベルの文字列を数値に変換
@@ -233,8 +259,11 @@ class ViewController: UIViewController {
             // ラベルの文字列を数値に変換
             number = (myLabel!.text! as NSString).doubleValue
             
-           let result = number / 100
+           let result = number / 100.0
             
+            
+            
+
             // ラベルの文字を消す
            // myLabel?.text? = ""
             
@@ -262,9 +291,22 @@ class ViewController: UIViewController {
             myLabel?.text? = String(format:"%g",result)
             
             
-                      
+            //,を押した時
+       
+        }else if (button3.titleLabel!.text! == ".") {
             
-    
+            //ラベルの長さ０だったら（まだラベルに入力されていなかったら）
+        if (myLabel?.text?.lengthOfBytesUsingEncoding(NSStringEncoding.allZeros) == 0) {
+                
+                myLabel?.text? += "0."
+
+            
+            // ラベルのテキストにコンマが含まれていなかったら
+            }else if (myLabel?.text?.rangeOfString(".") == nil) {
+                    
+                    myLabel?.text? += "."
+                    
+                }
             
             // イコールを押した時の式
         } else if (button3.titleLabel!.text! == "="){
@@ -316,10 +358,23 @@ class ViewController: UIViewController {
                 
                 myLabel?.text? = String(format:"%g",result)
                 
-                 NSLog("%g", result)
+                NSLog("%g", result)
+              
                 
+                // それ以外のボタンが押された場合の処理
            
-    
+            } else {
+            
+                
+                myLabel?.text? = ""
+                
+                // ボタンのタイトルをラベルの文字列に追加
+            }else if{
+                
+            }myLabel?.text? += button3.titleLabel!.text!
+                
+　　　　　　　　　//0が押された後は数字を置き換える
+                
                 
             
                 
@@ -332,15 +387,11 @@ class ViewController: UIViewController {
         // それ以外のボタンが押された場合の処理
         } else {
             
-            let number =  (myLabel!.text! as NSString).doubleValue
-            
-            NSLog("%g", number)
-            
-            myLabel?.text? = ""
-            
-            // ボタンのタイトルをラベルの文字列に追加
-            myLabel?.text? += button3.titleLabel!.text!
         
+            
+                      // ボタンのタイトルをラベルの文字列に追加
+            myLabel?.text? += button3.titleLabel!.text!
+
             
             
         }
