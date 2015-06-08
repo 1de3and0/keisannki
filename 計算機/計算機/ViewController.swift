@@ -146,8 +146,8 @@ class ViewController: UIViewController {
         button3.titleLabel?.font = UIFont(name: "ChalkboardSE-Bold", size: 30)
         
             //タップした状態の色
-            button3.setTitleColor(UIColor.redColor(), forState: .Highlighted)
-        
+       // button3.color = UIColor(red: 1.0, green: 0.412, blue: 0.706, alpha: 0.6)
+
             //サイズ
             button3.frame = CGRectMake(0, 0, 85, 85)
         
@@ -157,7 +157,9 @@ class ViewController: UIViewController {
             //背景色
             button3.backgroundColor = UIColor(red: 1.0, green: 0.412, blue: 0.706, alpha: 0.6)
 
-            
+        
+        
+        
             //角丸
             button3.layer.cornerRadius = 10
             
@@ -188,6 +190,11 @@ class ViewController: UIViewController {
             if (myLabel?.text != "0"){
                 
                 myLabel?.text? += "0"
+                
+             else if ()
+                
+                
+                
             }
             
             
@@ -352,15 +359,26 @@ class ViewController: UIViewController {
             }else if (operate == "÷"){
                 
                 let number2 =  (myLabel!.text! as NSString).doubleValue
-            
                 
                 let result = number / number2
                 
-                myLabel?.text? = String(format:"%g",result)
+                           myLabel?.text? = String(format:"%g",result)
                 
                 NSLog("%g", result)
-              
                 
+                
+                
+
+            
+        
+                
+                
+                
+            
+            
+            
+        
+        
                 // それ以外のボタンが押された場合の処理
            
             } else {
@@ -369,13 +387,13 @@ class ViewController: UIViewController {
                 myLabel?.text? = ""
                 
                 // ボタンのタイトルをラベルの文字列に追加
-            }else if{
+          
                 
-            }myLabel?.text? += button3.titleLabel!.text!
+            myLabel?.text? += button3.titleLabel!.text!
                 
-　　　　　　　　　//0が押された後は数字を置き換える
+                //0が押された後は数字を置き換える
                 
-                
+                 // }else if{
             
                 
                 
@@ -385,7 +403,7 @@ class ViewController: UIViewController {
         
         
         // それ以外のボタンが押された場合の処理
-        } else {
+        }else {
             
         
             
@@ -400,7 +418,7 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
 
         
-        super.didReceiveMemoryWarning()
+     super.didReceiveMemoryWarning()
         
         
         // Dispose of any resources that can be recreated.
