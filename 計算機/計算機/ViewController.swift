@@ -88,7 +88,7 @@ class ViewController: UIViewController {
         myLabel=UILabel(frame: CGRectMake(0,0,360,190))
         
         // 背景をオレンジ色にする.
-        myLabel?.backgroundColor = UIColor(red: 0.529, green: 0.809, blue: 0.98, alpha: 0.8)//UIColor.clearColor()
+        myLabel?.backgroundColor = UIColor(red: 0, green: 0, blue: 0.545, alpha: 0.4)
         
         
         // 枠を丸くする.
@@ -103,7 +103,7 @@ class ViewController: UIViewController {
         
         
         // 文字の色
-        myLabel?.textColor = UIColor(red: 0.1, green: 0.1, blue: 1.0, alpha: 1.0)
+        myLabel?.textColor = UIColor(red: 0.961, green: 0.961, blue: 0.961, alpha: 1.0)
         
         //文字のサイズ
     
@@ -134,7 +134,7 @@ class ViewController: UIViewController {
             button3.setTitle(title, forState: .Normal)
             
             //テキストの色
-            button3.setTitleColor(UIColor.blueColor(), forState: .Normal)
+            button3.setTitleColor(UIColor.darkGrayColor(), forState: .Normal)
 
       
         
@@ -155,9 +155,8 @@ class ViewController: UIViewController {
             button3.layer.position = CGPoint(x:x, y:y)
             
             //背景色
-            button3.backgroundColor = UIColor(red: 1.0, green: 0.412, blue: 0.706, alpha: 0.6)
+            button3.backgroundColor = UIColor(red: 1.0, green: 0.843, blue: 0, alpha: 0.7)
 
-        
         
         
             //角丸
@@ -190,8 +189,7 @@ class ViewController: UIViewController {
             if (myLabel?.text != "0"){
                 
                 myLabel?.text? += "0"
-                
-             else if ()
+            
                 
                 
                 
@@ -367,10 +365,6 @@ class ViewController: UIViewController {
                 NSLog("%g", result)
                 
                 
-                
-
-            
-        
                 
                 
                 
